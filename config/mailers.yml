@@ -1,0 +1,14 @@
+default: &default
+  address:              smtp.mandrillapp.com
+  port:                 587
+  domain:               earpuff.com
+  user_name:            app17435512@heroku.com
+  password:             QTHE0ghktPl4brQlKfXFoA
+  authentication:       login
+  enable_starttls_auto: true
+
+development:
+  <<: *default
+
+production:
+  <<: *default
