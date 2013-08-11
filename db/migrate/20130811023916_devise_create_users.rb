@@ -3,6 +3,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
     create_table(:users) do |t|
       ## Custom Attributes
       t.boolean :admin, :default => false
+      t.boolean :approved, :default => false
+      t.string :company
+      t.string :ein
+      t.string :resale_number
+      t.string :purchase_name
       t.string :first_name
       t.string :last_name
       t.string :title

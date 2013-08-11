@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 20130811023916) do
 
   create_table "users", force: true do |t|
     t.boolean  "admin",                  default: false
+    t.boolean  "approved",               default: false
+    t.string   "company"
+    t.string   "ein"
+    t.string   "resale_number"
+    t.string   "purchase_name"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"
