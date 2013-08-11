@@ -74,5 +74,5 @@ Earpuff::Application.configure do
 
   #config.assets.initialize_on_precompile = false
 
-  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.default_url_options = { :host => 'www.earpuff.com' }
 end
