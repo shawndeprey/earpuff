@@ -14,10 +14,14 @@ class ChargeController < ApplicationController
 	city = params[:city]
 	state = params[:state]
 	zip_code = params[:zip_code]
+	company = params[:company]
+	employeeID = params[:employeeID]
+	resale_num = params[:resale_num]
+	purchasing_name = params[:purchasing_name]
 
 	# Hidden
 	amount = params[:amount]
-	description = "#{params[:description]}\n#{first_name}\n#{last_name}\n#{phone}\n#{email}\n#{street_address}\n#{city}\n#{state}\n#{zip_code}"
+	description = "#{params[:description]}\n#{first_name}\n#{last_name}\n#{phone}\n#{email}\n#{company}\n#{employeeID}\n#{resale_num}\n#{purchasing_name}\n#{street_address}\n#{city}\n#{state}\n#{zip_code}"
 
 	# Create the charge on Stripe's servers - this will charge the user's card
 	begin
