@@ -1,5 +1,135 @@
 <div class="row" id="results">
   <div class="span12">
-  	Earpuff
+  	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<script type="text/javascript">
+		  Stripe.setPublishableKey('pk_test_Wx2jUtfm9Rpi0tAhkaatzRaP');
+
+		  var stripeResponseHandler = function(status, response) {
+		    var $form = $('#payment-form');
+
+		    if (response.error) {
+		      // Show the errors on the form
+		      $form.find('.payment-errors').text(response.error.message);
+		      $form.find('button').prop('disabled', false);
+		    } else {
+		      // token contains id, last4, and card type
+		      var token = response.id;
+		      // Insert the token into the form so it gets submitted to the server
+		      $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+		      // and submit
+		      $form.get(0).submit();
+		    }
+		  };
+
+		  jQuery(function($) {
+		    $('#payment-form').submit(function(event) {
+		      var $form = $(this);
+
+		      // Disable the submit button to prevent repeated clicks
+		      $form.find('button').prop('disabled', true);
+
+		      Stripe.createToken($form, stripeResponseHandler);
+
+		      // Prevent the form from submitting with the default action
+		      return false;
+		    });
+		  });
+		</script>
+
+		<p>
+			We’re “In the Service of Sound” creating “Audio that feels and sounds great and is good for you.”
+		</p>
+		<p>
+			OEM Customers, Resellers and Partners please login by clicking the link above.  Others please contact as at info (at) earpuff.com
+		</p>
+
+		<h2>2x EarPuffs $1.00</h2>
+
+		<form action="/charges/create" method="POST" id="payment-form">
+			<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+		  <span class="payment-errors"></span>
+
+		  <input name="amount" type="hidden" value="100"/>
+		  <input name="description" type="hidden" value="2x EarPuffs"/>
+
+		  <div class="form-row">
+		    <label>
+		      <span>First Name</span>
+		      <input name="first_name" type="text"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		    <label>
+		      <span>Last Name</span>
+		      <input name="last_name" type="text"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		    <label>
+		      <span>Phone</span>
+		      <input name="phone" type="text"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		    <label>
+		      <span>Email</span>
+		      <input name="email" type="text"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		  	<label><strong>Shipping Address</strong></label>
+		    <label>
+		      <span>Street Address</span>
+		      <input name="street_address" type="text"/>
+		    </label>
+		    <label>
+		      <span>City</span>
+		      <input name="city" type="text"/>
+		    </label>
+		    <label>
+		      <span>State</span>
+		      <input name="state" type="text"/>
+		    </label>
+		    <label>
+		      <span>Zip Code</span>
+		      <input name="zip_code" type="text"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		    <label>
+		      <span>Card Number</span>
+		      <input type="text" size="20" data-stripe="number"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		    <label>
+		      <span>Name on Card</span>
+		      <input type="text" data-stripe="name"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		    <label>
+		      <span>CVC</span>
+		      <input type="text" size="4" data-stripe="cvc"/>
+		    </label>
+		  </div>
+
+		  <div class="form-row">
+		      <span>Expiration (MM/YYYY)</span>
+		      <input type="text" size="2" data-stripe="exp-month"/>
+		       / 
+		      <input type="text" size="4" data-stripe="exp-year"/>
+		  </div>
+
+		  <button type="submit">Submit Payment</button>
+		</form>
+
   </div>
 </div>
