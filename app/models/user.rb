@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
+  def full_name
+    return "#{self.first_name} #{self.last_name}"
+  end
 end
