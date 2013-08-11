@@ -4,4 +4,8 @@ class DefaultController < ApplicationController
   	# index.html.erb
   end
 
+  def splash
+  	# splash.html.erb
+  end
+
 end

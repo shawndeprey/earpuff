@@ -2,8 +2,6 @@
     var earpuff = earpuff ? earpuff : {
       settings: {
       	init: function(){
-      		// Initializing our JS Library Settings
-          earpuff.search.init();
       	}
       },
       init: function(){
