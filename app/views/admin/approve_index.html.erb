@@ -1,0 +1,14 @@
+<div class="row" id="results">
+  <div class="span12">
+  	<h3>The users below are NOT currently approved</h3>
+  	<hr>
+		<% @users.each do |user| %>
+			<table>
+				<tr>
+					<td><%= user.email %></td>
+					<td><a href="/admin/approve_user/<%= user.id %>">Approve</a></td>
+				</tr>
+			</table>
+		<% end %>
+	</div>
+</div>
