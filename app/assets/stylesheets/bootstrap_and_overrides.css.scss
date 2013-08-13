@@ -2,6 +2,16 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
-body.v1 { 
-
+header.navbar {
+	div.dropdown {
+		button.btn {
+			padding: 4px 6px;
+			margin-top: -3px;
+			img.logo { height: 25px; }
+		}
+		ul {
+			left: -123px;
+			li { padding: 0px 5px; text-align: center; }
+		}
+	}
 }

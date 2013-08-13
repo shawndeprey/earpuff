@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  after_create :update_admins
+
+  def update_admins
+    UserSignupCopyMailer.email(self).deliver
+  end
+
   def full_name
     return "#{self.first_name} #{self.last_name}"
   end

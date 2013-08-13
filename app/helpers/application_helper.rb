@@ -10,6 +10,7 @@ module ApplicationHelper
 
 	# General Helpers
 	LOGO = "/images/earpuff-logo.png"
+  COPY_EMAIL = Rails.env.production? ? "michaelpsilva@gmail.com" : "shawndeprey@gmail.com"
 
 	def display_base_errors resource
     return '' if (resource.errors.empty?) or (resource.errors[:base].empty?)
