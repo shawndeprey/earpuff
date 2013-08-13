@@ -3,9 +3,6 @@ class DefaultController < ApplicationController
 
   def index
     # index.html.erb
-    if user_signed_in?
-      redirect_to products_path
-    end
   end
 
 	def contact
@@ -14,6 +11,7 @@ class DefaultController < ApplicationController
 
   def product
     #product.html.erb
+    @user = current_user
   end
 
 end
