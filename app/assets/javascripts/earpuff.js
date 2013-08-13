@@ -9,6 +9,12 @@
       },
       toggleElement: function(element_class){
       	$(element_class).slideToggle(250);
+      },
+      hideElement: function(element_class){
+        $(element_class).hide();
+      },
+      showElement: function(element_class){
+        $(element_class).show();
       }
     };
     global.earpuff = earpuff;
