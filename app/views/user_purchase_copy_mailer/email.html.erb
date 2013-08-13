@@ -1,0 +1,8 @@
+<p style="font-weight: bold;">Hi <%= ApplicationHelper::COPY_EMAIL %>,</p>
+
+<p>
+	<%= @user.full_name %> has purchased <%= @description %>&trade;, totaling $<%= @amount %>.<br>
+	User email: <%= @user.email %>
+</p>
+
+<p style="font-weight: bold;">- Team EarPuff&trade;</p>
