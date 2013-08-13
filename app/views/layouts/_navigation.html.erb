@@ -12,7 +12,7 @@
         <% if user_signed_in? %>
           <li><a href="/product">Products</a></li>
           <% if current_user.admin == true %>
-            <li><a href="/product">Approve Users</a></li>
+            <li><a href="/admin/approve_users">Approve Users</a></li>
           <% end %>
         <% end %>
         <li class="divider"></li>
