@@ -33,6 +33,7 @@ class ChargeController < ApplicationController
 				:description => description
 			)
 			OrderConfirmationMailer.email(current_user, params[:description], Float(amount) / 100.0).deliver
+			UserPurchaseCopyMailer.email(current_user, params[:description], Float(amount) / 100.0).deliver
 			redirect_to '/charges/success'
 			rescue Stripe::CardError => e
 				# The card has been declined
